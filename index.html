@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>AugmentEPF</title>
+    <meta charset="utf-8">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+    <script   src="https://code.jquery.com/jquery-3.1.1.min.js"   integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="   crossorigin="anonymous"></script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-route.js"></script>
+    
+    <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Courgette" rel="stylesheet">
+    
+    <style>
+        body, html, .content {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+        }
+        .menuInfo, .menuApp {
+        	z-index: 1;
+        	vertical-align: middle;
+        	position: fixed;
+        	margin-top: 20%;
+        	background-color: #272626;
+        	padding-right: 20px;
+        }
+        .menuApp {
+        	margin: 0;
+        	height: 100%;
+        }
+        .menuInfo {
+        	box-shadow: 0px 0px 50px #272626;
+        	border-radius: 0px 40px 40px 0px;
+        }
+    	.menuInfo a, .menuApp a {
+    		display: block;
+    		margin-top: 50px;
+    	}
+    	.menuInfo a, .menuApp a, .menuInfo a:hover, .menuApp a:hover, .menuInfo a:active, .menuApp a:active {
+    		color: white;
+    		text-decoration: none;
+    	}
+    	.firstPic, .lastPic {
+    		z-index: 0;
+            position: relative;
+            opacity: 0.65;
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            text-align: center;
+    	}
+    	.firstPic {
+            background-image: url("img/lakanalEntry.jpg");
+            min-height: 100%;
+    	}
+		.lastPic {
+            background-image: url("img/lakanalEntry.jpg");
+            min-height: 200px;
+		}
+    </style>
+    <script>
+        // création de l'app Angular
+        var app = angular.module("myApp", ["ngRoute"]);
+
+        // déclaration des routes
+        app.config(function($routeProvider, $locationProvider) {
+            $routeProvider
+            	.when("/", {
+            		templateUrl: "src/info.html"
+            	})
+            	.when("/dashboard", {
+            		templateUrl: "src/dashboard.html"
+            	})
+            	.when("/calendar", {
+            		templateUrl: "src/calendar.html"
+            	})
+            	.when("/courses", {
+            		templateUrl: "src/courses.html"
+            	})
+            	.when("/rooms", {
+            		templateUrl: "src/rooms.html"
+            	})
+            	.when("/settings", {
+            		templateUrl: "src/settings.html"
+            	})
+            	.when("/admin", {
+            		templateUrl: "src/admin.html"
+            	})
+            // .when("/portfolio", {
+            //     templateUrl: "src/portfolio.html",
+            //     controller: "porfolioCtrl"
+            // })
+        });
+    </script>
+</head>
+<body>
+    <!-- importation de contenu -->
+    <div ng-app="myApp" class="content">
+        <div class="content" ng-view></div>
+    </div>
+</body>
+</html>
