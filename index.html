@@ -26,6 +26,7 @@
         	vertical-align: middle;
         	position: fixed;
         	margin-top: 20%;
+            padding-left: 10px;
         	background-color: #272626;
         	padding-right: 20px;
         }
@@ -65,6 +66,9 @@
 		}
     </style>
     <script>
+        //variables globales
+        var adresse = "http://192.168.206.106/AugmentEPF/php/";
+        
         // création de l'app Angular
         var app = angular.module("myApp", ["ngRoute"]);
 
@@ -92,11 +96,53 @@
             	.when("/admin", {
             		templateUrl: "src/admin.html"
             	})
-            // .when("/portfolio", {
-            //     templateUrl: "src/portfolio.html",
-            //     controller: "porfolioCtrl"
-            // })
         });
+        
+        // Déclaration des controllers
+        app.controller("info", function($http){
+            
+        var user = {
+            id:150,
+            name:"Guilhem2",
+            type:"étudiant",
+            password:"Testpassword",
+            email:"bob92@gmail.com",
+            specificAttributes:[
+                "elevator",
+                "biggerText"
+            ]
+        };
+        user = JSON.stringify(user);
+            
+            $http({
+                method: 'POST',
+                url: adresse + "accountCreation.php",
+                headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+                data: "Send=" + user
+                }
+            ).then(function successCallback(response) {
+                console.log(response);
+            }, function errorCallback(response) {                console.log(response);
+            });
+        });
+        app.controller("dashboard", function(){
+            console.log("dashboard");
+                       });
+        app.controller("calendar", function(){
+            console.log("calendar");
+                       });
+        app.controller("courses", function(){
+            console.log("courses");
+                       });
+        app.controller("rooms", function(){
+            console.log("rooms");
+                       });
+        app.controller("settings", function(){
+            console.log("settings");
+                       });
+        app.controller("admin", function(){
+            console.log("admin");
+                       });
     </script>
 </head>
 <body>
