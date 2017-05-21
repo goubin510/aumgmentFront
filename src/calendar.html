@@ -1,3 +1,9 @@
+<script>
+    $(document).ready(function(){
+        $('[data-toggle="popover"]').popover();   
+    });
+</script>
+
 <div ng-controller="calendar as curent" class="content">
     <div class="menuApp" >
         <a href="/#/" ><h3>Home</h3></a>
@@ -13,6 +19,156 @@
         <div class="col-sm-2"></div>
         <div class="col-sm-8">
             <h1>Calendar</h1>
+            
+            <div class="calContent">
+                <div class="dayCal">
+                    <div class="titleLegend">
+                        Hrs\Days
+                    </div>
+                    <div class="single">
+                        8h
+                    </div>
+                    <div class="single">
+                        9h
+                    </div>
+                    <div class="single">
+                        10h
+                    </div>
+                    <div class="single">
+                        11h
+                    </div>
+                    <div class="single">
+                        12h
+                    </div>
+                    <div class="single">
+                        13h
+                    </div>
+                    <div class="single">
+                        14h
+                    </div>
+                    <div class="single">
+                        15h
+                    </div>
+                    <div class="single">
+                        16h
+                    </div>
+                    <div class="single">
+                        17h
+                    </div>
+                    <div class="single">
+                        18h
+                    </div>
+                    <div class="single">
+                        19h
+                    </div>
+                </div>
+                <div class="dayCal">
+                    <div class="title">
+                        mondayCal
+                    </div>
+                    <div class="single calTest" data-toggle="tooltip" title="8h15 : 9h15">
+                        <a title="8h15 : 9h15 (11L)" data-toggle="popover" data-placement="right" data-content="Ingénierie Système et gestion">Ingénierie Système et gestion</a>
+                    </div>
+                    <div class="single"></div>
+                    <div class="double calTest" data-toggle="tooltip" title="10h : 12h">
+                        <a title="10h : 12h (9L)" data-toggle="popover" data-placement="right" data-content="Ingénierie du traitement statistiques">Ingénierie du traitement statistiques</a>
+                    </div>
+                    <div class="single"></div>
+                    <div class="quad calTest" data-toggle="tooltip" title="13h : 17h">
+                        <a title="13h : 17h (3L)" data-toggle="popover" data-placement="right" data-content="Ingénierie qualité">Ingénierie qualité</a>
+                    </div>
+                    <div class="single"></div>
+                    <div class="single"></div>
+                    <div class="single"></div>
+                </div>
+                <div class="dayCal">
+                    <div class="title">
+                        tuesdayCal
+                    </div>
+                    <div class="single"></div>
+                    <div class="single"></div>
+                    <div class="double calTest">
+                        <a>Evaluation environnementale</a>
+                    </div>
+                    <div class="single"></div>
+                    <div class="single"></div>
+                    <div class="quad calTest">
+                        <a>Politique de sécurité des SI</a>
+                    </div>
+                    <div class="single"></div>
+                    <div class="single"></div>
+                </div>
+                <div class="dayCal">
+                    <div class="title">
+                        wednesday
+                    </div>
+                    <div class="double calTest">
+                        <a>VBA</a>
+                    </div>
+                    <div class="double calTest">
+                        <a>Ethique</a>
+                    </div>
+                    <div class="single"></div>
+                    <div class="single"></div>
+                    <div class="single"></div>
+                    <div class="single"></div>
+                    <div class="single"></div>
+                    <div class="single"></div>
+                    <div class="single"></div>
+                    <div class="single"></div>
+                </div>
+                <div class="dayCal">
+                    <div class="title">
+                        thursday
+                    </div>
+                    <div class="single"></div>
+                    <div class="triple calTest">
+                        <a>Insertion en entreprise</a>
+                    </div>
+                    <div class="single"></div>
+                    <div class="single"></div>
+                    <div class="single"></div>
+                    <div class="triple calTest">
+                        <a>Rapport</a>
+                    </div>
+                    <div class="single"></div>
+                    <div class="single"></div>
+                </div>
+                <div class="dayCal">
+                    <div class="title">
+                        fridayCal
+                    </div>
+                    <div class="single"></div>
+                    <div class="single"></div>
+                    <div class="single"></div>
+                    <div class="single"></div>
+                    <div class="single"></div>
+                    <div class="single"></div>
+                    <div class="single"></div>
+                    <div class="single"></div>
+                    <div class="single"></div>
+                    <div class="single"></div>
+                    <div class="single"></div>
+                    <div class="single"></div>
+                </div>
+                <div class="dayCal">
+                    <div class="title">
+                        saturdayCal
+                    </div>
+                    <div class="single"></div>
+                    <div class="single"></div>
+                    <div class="single"></div>
+                    <div class="single"></div>
+                    <div class="single"></div>
+                    <div class="single"></div>
+                    <div class="single"></div>
+                    <div class="single"></div>
+                    <div class="single"></div>
+                    <div class="single"></div>
+                    <div class="single"></div>
+                    <div class="single"></div>
+                </div>
+            </div>
         </div>
         <div class="col-sm-2"></div>
     </div>
