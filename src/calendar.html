@@ -1,9 +1,3 @@
-<script>
-    $(document).ready(function(){
-        $('[data-toggle="popover"]').popover();   
-    });
-</script>
-
 <div ng-controller="calendar as curent" class="content">
     <div class="menuApp" >
         <a href="/#/" ><h3>Home</h3></a>
@@ -67,15 +61,24 @@
                         mondayCal
                     </div>
                     <div class="single calTest" data-toggle="tooltip" title="8h15 : 9h15">
-                        <a title="8h15 : 9h15 (11L)" data-toggle="popover" data-placement="right" data-content="Ingénierie Système et gestion">Ingénierie Système et gestion</a>
+                        <a title="8h15 : 9h15 (11L)" 
+                           data-toggle="popover" 
+                           data-placement="right" 
+                           data-content="Ingénierie Système et gestion">Ingénierie Système et gestion</a>
                     </div>
                     <div class="single"></div>
                     <div class="double calTest" data-toggle="tooltip" title="10h : 12h">
-                        <a title="10h : 12h (9L)" data-toggle="popover" data-placement="right" data-content="Ingénierie du traitement statistiques">Ingénierie du traitement statistiques</a>
+                        <a title="10h : 12h (9L)" 
+                           data-toggle="popover" 
+                           data-placement="right" 
+                           data-content="Ingénierie du traitement statistiques">Ingénierie du traitement statistiques</a>
                     </div>
                     <div class="single"></div>
                     <div class="quad calTest" data-toggle="tooltip" title="13h : 17h">
-                        <a title="13h : 17h (3L)" data-toggle="popover" data-placement="right" data-content="Ingénierie qualité">Ingénierie qualité</a>
+                        <a title="13h : 17h (3L)" 
+                           data-toggle="popover" 
+                           data-placement="right" 
+                           data-content="Ingénierie qualité">Ingénierie qualité</a>
                     </div>
                     <div class="single"></div>
                     <div class="single"></div>
@@ -173,3 +176,9 @@
         <div class="col-sm-2"></div>
     </div>
 </div>
+
+<script>
+    $(document).ready(function(){
+        $('[data-toggle="popover"]').popover();
+    });
+</script>
