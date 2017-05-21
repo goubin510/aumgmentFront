@@ -4,16 +4,17 @@
     <title>AugmentEPF</title>
     <meta charset="utf-8">
 
+<!--  import de bootstrap.css, fontawesome.css  -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
 
+<!--  import de jQuery, bootstrap.js  -->
     <script   src="https://code.jquery.com/jquery-3.1.1.min.js"   integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="   crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 
+<!--  import de angular et angular route  -->
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
-        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-route.js"></script>
-    
-    <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Courgette" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-route.js"></script>
     
     <style>
         body, html, .content {
@@ -25,10 +26,12 @@
         	z-index: 1;
         	vertical-align: middle;
         	position: fixed;
+        	background-color: #272626;
+            
         	margin-top: 20%;
             padding-left: 10px;
-        	background-color: #272626;
         	padding-right: 20px;
+        	padding-bottom: 20px;
         }
         .menuApp {
         	margin: 0;
@@ -50,11 +53,12 @@
     		z-index: 0;
             position: relative;
             opacity: 0.65;
+            text-align: center;
+            
             background-attachment: fixed;
             background-position: center;
             background-repeat: no-repeat;
             background-size: cover;
-            text-align: center;
     	}
     	.firstPic {
             background-image: url("img/lakanalEntry.jpg");
@@ -64,6 +68,40 @@
             background-image: url("img/lakanalEntry.jpg");
             min-height: 200px;
 		}
+        .createUser label{
+            display: inline-block;
+            text-align: right;
+            width: 19%;
+        }
+        .createUser input{
+            display: inline-block;
+            width: 79%;
+        }
+        h4 {
+            margin: 0;
+            display: inline-block;
+            text-align: center;
+            
+            border-right-style: solid;
+            border-right-width: 1px;
+            border-right-color: black;
+            
+            padding: 10px;
+        }
+        h4:last-child {
+            border-style: none;
+        }
+        .personalTag {
+            display: inline-block;
+        }
+        .personalTag label {
+            display: block;
+        }
+        .more {
+            text-align: center;
+            width: 10%;
+            margin-left: 80%;
+        }
     </style>
     <script>
         //variables globales
@@ -99,31 +137,51 @@
         });
         
         // Déclaration des controllers
-        app.controller("info", function($http){
+        app.controller("info", function($http, $scope){
             
-        var user = {
-            id:150,
-            name:"Guilhem2",
-            type:"étudiant",
-            password:"Testpassword",
-            email:"bob92@gmail.com",
-            specificAttributes:[
-                "elevator",
-                "biggerText"
-            ]
-        };
-        user = JSON.stringify(user);
+            this.newUser = function(){
+                var user = {
+                    "name": $scope.name,
+                    "type": "étudiant",
+                    "password": $scope.password,
+                    "email": $scope.email,
+                    "specificAttributes": ["elevator","biggerText"]
+                };
+                var user = JSON.stringify(user);
+
+                $http({
+                    method: 'POST',
+                    url: adresse + "accountCreation.php",
+                    headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+                    data: "Send=" + user
+                    }
+                ).then(function successCallback(response) {
+                    console.log(response);
+                }, function errorCallback(response) {
+                    console.log(response);
+                });
+            }
             
-            $http({
-                method: 'POST',
-                url: adresse + "accountCreation.php",
-                headers: {'Content-Type': 'application/x-www-form-urlencoded'},
-                data: "Send=" + user
-                }
-            ).then(function successCallback(response) {
-                console.log(response);
-            }, function errorCallback(response) {                console.log(response);
-            });
+            this.connection = function(){
+                var user = {
+                    "name": $scope.name,
+                    "password": $scope.password
+                };
+                var user = JSON.stringify(user);
+
+                $http({
+                    method: 'POST',
+                    url: adresse + "connection.php",
+                    headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+                    data: "Send=" + user
+                    }
+                ).then(function successCallback(response) {
+                    console.log(response);
+                }, function errorCallback(response) {
+                    console.log(response);
+                });
+            }
+            
         });
         app.controller("dashboard", function(){
             console.log("dashboard");

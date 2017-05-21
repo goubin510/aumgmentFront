@@ -3,7 +3,7 @@
         <a href="/#/dashboard" ><h2>Visit</h2></a>
         <a href="" ><h2>Projet</h2></a>
         <a href="" ><h2>News</h2></a>
-        <a href="" ><h2>Account</h2></a>
+        <a href="" data-toggle="modal" data-target="#conModal"><h2>Account</h2></a>
     </div>
 
     <div class="firstPic"></div>
@@ -21,6 +21,44 @@
         </div>
         <div class="col-sm-4"></div>
     </div>
+    
+    <div class="row">
+        <div class="col-sm-3"></div>
+        <div class="col-sm-6">
+
+        <h2>L'équipe</h2>
+            <div class="personalTag">
+                <img src="img/photoProfile/Coline_patris.jpg" class="img-thumbnail" width="200" height="200" alt="Coline patris">
+                <label>Coline patris</label>
+            </div>
+            <div class="personalTag">
+                <img src="img/photoProfile/Cecile_Tran.jpg" class="img-thumbnail" width="200" height="200" alt="Cecile Tran">
+                <label>Cecile Tran</label>
+            </div>
+            <div class="personalTag">
+                <img src="img/photoProfile/Antoine_Goubin.jpg" class="img-thumbnail" width="200" height="200" alt="Antoine Goubin">
+                <label>Antoine Goubin</label>
+            </div>
+            <div class="personalTag">
+                <img src="img/photoProfile/Jeremy_Duong.jpg" class="img-thumbnail" width="200" height="200" alt="Jeremy Duong">
+                <label>Jeremy Duong</label>
+            </div>
+            <div class="personalTag">
+                <img src="img/photoProfile/Guilhem_Pequillat.jpg" class="img-thumbnail" width="200" height="200" alt="Guilhem Pequillat">
+                <label>Guilhem Pequillat</label>
+            </div>
+            <div class="personalTag">
+                <img src="img/photoProfile/Anthony_Prudhomme.jpg" class="img-thumbnail" width="200" height="200" alt="Anthony Prudhomme">
+                <label>Anthony Prudhomme</label>
+            </div>
+            <div class="personalTag">
+                <img src="img/photoProfile/Hugo_Ruiz.jpg" class="img-thumbnail" width="200">
+                <label>Hugo_Ruiz</label>
+            </div>
+
+        </div>
+        <div class="col-sm-5"></div>
+    </div>
 
     <div class="row">
         <div class="col-sm-4"></div>
@@ -36,4 +74,64 @@
     </div>
 
     <div class="lastPic"></div>
+    
+    <!-- Modal -->
+    <div id="conModal" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    
+                    <h4>Connect</h4>
+                    <h4>Create account</h4>
+                    <h4>Connect as anon</h4>
+                </div>
+                
+                <div ng-show="true">
+                    <div class="modal-body">
+                        <div>
+                            <p>
+                                <label>Pseudo : </label>
+                                <input type="text" class="form-control" placeholder="Pseudo" ng-model="name">
+                            </p>
+                            
+                            <p>
+                                <label>Password : </label>
+                                <input type="password" class="form-control" placeholder="Password" ng-model="password">
+                            </p>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-success" data-dismiss="modal" ng-click="curent.connection()">Connect</button>
+                    </div>
+                </div>
+                
+                <div ng-show="true">
+                    <div class="modal-body">
+                        <div>
+                            <p class="createUser">
+                                <label>Pseudo : </label>
+                                <input type="text" class="form-control" placeholder="Pseudo" ng-model="name">
+                            </p>
+                            
+                            <p class="createUser">
+                                <label>Password : </label>
+                                <input type="password" class="form-control" placeholder="Password" ng-model="password">
+                            </p>
+                            
+                            <p class="createUser">
+                                <label>Email : </label>
+                                <input type="email" class="form-control" placeholder="Email" ng-model="email">
+                            </p>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-info" data-dismiss="modal" ng-click="curent.newUser()">Create</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> 
 </div>
