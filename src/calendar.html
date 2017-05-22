@@ -1,5 +1,7 @@
-<div ng-controller="calendar as curent" class="content">
-    <div class="menuApp" >
+<div ng-controller="menuApp as curent">
+    <div class="menuApp">
+        <label>{{name}}</label>
+        
         <a href="/#/" ><h3>Home</h3></a>
         <a href="/#/dashboard" ><h3>Visit</h3></a>
         <a href="/#/calendar" ><h3>Planning</h3></a>
@@ -7,8 +9,11 @@
         <a href="/#/rooms" ><h3>Rooms</h3></a>
         <a href="/#/settings" ><h3>Settings</h3></a>
         <a href="/#/admin" ><h3>Admin</h3></a>
+        <label ng-click="curent.test()">logOut</label>
     </div>
+</div>
 
+<div ng-controller="calendar as curent" class="content">
     <div class="row">
         <div class="col-sm-2"></div>
         <div class="col-sm-8">
@@ -23,37 +28,37 @@
                         8h
                     </div>
                     <div class="single">
-                        9h
+                        -
                     </div>
                     <div class="single">
                         10h
                     </div>
                     <div class="single">
-                        11h
+                        -
                     </div>
                     <div class="single">
                         12h
                     </div>
                     <div class="single">
-                        13h
+                        -
                     </div>
                     <div class="single">
                         14h
                     </div>
                     <div class="single">
-                        15h
+                        -
                     </div>
                     <div class="single">
                         16h
                     </div>
                     <div class="single">
-                        17h
+                        -
                     </div>
                     <div class="single">
                         18h
                     </div>
                     <div class="single">
-                        19h
+                        -
                     </div>
                 </div>
                 <div class="dayCal">

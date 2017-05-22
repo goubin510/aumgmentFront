@@ -22,6 +22,9 @@
             padding: 0;
             height: 100%;
         }
+        a, a:hover, a:active {
+            color: white;
+        }
         .menuInfo, .menuApp {
         	z-index: 1;
         	vertical-align: middle;
@@ -36,6 +39,9 @@
         .menuApp {
         	margin: 0;
         	height: 100%;
+        }
+        .menuApp label {
+            color: white;
         }
         .menuInfo {
         	box-shadow: 0px 0px 50px #272626;
@@ -120,7 +126,7 @@
             border-width: 1px;
             border-color: RGBA(0, 0, 0, 0.8);
             
-            background-color: RGBA(0, 216, 95, 0.8);
+            background-color: RGBA(255, 0, 0, 0.8);
         }
         .title, titleLegend {
             margin-bottom: 20px;
@@ -130,6 +136,9 @@
         }
         .titleLegend {
             margin-bottom: 10px;
+            
+            border-bottom-style: solid;
+            border-bottom-width: 1px;
         }
         .dayCal div {
             overflow: hidden;
@@ -146,6 +155,24 @@
         }
         .quad {
             flex: 4;
+        }
+        .inputs, .dataDisplay {
+            display: inline-block;
+            vertical-align: top;
+        }
+        .dataDisplay {
+            border-style: solid;
+            border-width: 1px;
+        }
+        h5 {
+            margin-right: 10px;
+            margin-left: 10px;
+        }
+        .topTitle {
+            display: block;
+        }
+        .inlineDiv {
+            display: inline-block;
         }
     </style>
     <script>
@@ -193,18 +220,24 @@
                     "specificAttributes": ["elevator","biggerText"]
                 };
                 var user = JSON.stringify(user);
+                
+                localStorage.name = $scope.name;
+                
+                document.location = "/#/dashboard";
 
-                $http({
-                    method: 'POST',
-                    url: adresse + "accountCreation.php",
-                    headers: {'Content-Type': 'application/x-www-form-urlencoded'},
-                    data: "Send=" + user
-                    }
-                ).then(function successCallback(response) {
-                    console.log(response);
-                }, function errorCallback(response) {
-                    console.log(response);
-                });
+//                $http({
+//                    method: 'POST',
+//                    url: adresse + "accountCreation.php",
+//                    headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+//                    data: "Send=" + user
+//                    }
+//                ).then(function successCallback(response) {
+//                    document.location = "/#/dashboard";
+//                    console.log(response);
+//                }, function errorCallback(response) {
+//                    document.location = "/#/dashboard";
+//                    console.log(response);
+//                });
             }
             
             this.connection = function(){
@@ -213,38 +246,61 @@
                     "password": $scope.password
                 };
                 var user = JSON.stringify(user);
+                
+                localStorage.name = $scope.name;
+                
+                document.location = "/#/dashboard";
 
-                $http({
-                    method: 'POST',
-                    url: adresse + "connection.php",
-                    headers: {'Content-Type': 'application/x-www-form-urlencoded'},
-                    data: "Send=" + user
-                    }
-                ).then(function successCallback(response) {
-                    console.log(response);
-                }, function errorCallback(response) {
-                    console.log(response);
-                });
+//                $http({
+//                    method: 'POST',
+//                    url: adresse + "connection.php",
+//                    headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+//                    data: "Send=" + user
+//                    }
+//                ).then(function successCallback(response) {
+//                    document.location = "/#/dashboard";
+//                    console.log(response);
+//                }, function errorCallback(response) {
+//                    document.location = "/#/dashboard";
+//                    console.log(response);
+//                });
+            }
+            
+            this.connectionAnon = function() {
+                console.log("coucou");
+                
+                localStorage.name = "anon";
+                
+                document.location = "/#/dashboard";
             }
             
         });
-        app.controller("dashboard", function(){
-            console.log("dashboard");
+        app.controller("menuApp", function($scope){
+            $scope.name = localStorage.name || "error";
+            
+            this.test = function() {
+                localStorage.clear();
+                document.location = "/"
+            }
+            
+                       });
+        app.controller("dashboard", function($scope){
+            
                        });
         app.controller("calendar", function(){
-            console.log("calendar");
+            
                        });
         app.controller("courses", function(){
-            console.log("courses");
+            
                        });
         app.controller("rooms", function(){
-            console.log("rooms");
+            
                        });
         app.controller("settings", function(){
-            console.log("settings");
+            
                        });
         app.controller("admin", function(){
-            console.log("admin");
+            
                        });
     </script>
 </head>

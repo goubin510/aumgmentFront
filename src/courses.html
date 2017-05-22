@@ -1,5 +1,7 @@
-<div ng-controller="courses as curent" class="content">
-    <div class="menuApp" >
+<div ng-controller="menuApp as curent">
+    <div class="menuApp">
+        <label>{{name}}</label>
+        
         <a href="/#/" ><h3>Home</h3></a>
         <a href="/#/dashboard" ><h3>Visit</h3></a>
         <a href="/#/calendar" ><h3>Planning</h3></a>
@@ -7,12 +9,42 @@
         <a href="/#/rooms" ><h3>Rooms</h3></a>
         <a href="/#/settings" ><h3>Settings</h3></a>
         <a href="/#/admin" ><h3>Admin</h3></a>
+        <label ng-click="curent.test()">logOut</label>
     </div>
+</div>
 
+<div ng-controller="courses as curent" class="content">
     <div class="row">
         <div class="col-sm-2"></div>
         <div class="col-sm-8">
             <h1>Courses</h1>
+            <div class="inputs">
+                <p>
+                    <label>Destination</label>
+                    <input type="text">
+                </p>
+                <p>
+                    <label>date</label>
+                    <input type="date">
+                </p>
+                <p>
+                    <label>time</label>
+                    <input type="time">
+                </p>
+            </div>
+            
+            <div class="dataDisplay">
+                <h5>Amhpi A —— 01/01/2018 12:12</h5>
+                <h5>Amhpi A —— 01/01/2018 12:12</h5>
+                <h5>Amhpi A —— 01/01/2018 12:12</h5>
+                <h5>Amhpi A —— 01/01/2018 12:12</h5>
+                
+                <h5><small>Amhpi A —— 01/01/2018 12:12</small></h5>
+                <h5><small>Amhpi A —— 01/01/2018 12:12</small></h5>
+                <h5><small>Amhpi A —— 01/01/2018 12:12</small></h5>
+                <h5><small>Amhpi A —— 01/01/2018 12:12</small></h5>
+                
+            </div>
         </div>
         <div class="col-sm-2"></div>
     </div>
