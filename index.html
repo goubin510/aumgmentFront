@@ -12,9 +12,10 @@
     <script   src="https://code.jquery.com/jquery-3.1.1.min.js"   integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="   crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 
-<!--  import de angular et angular route  -->
+<!--  import de angular et ses compos  -->
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-route.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-animate.js"></script>
     
     <style>
         body, html, .content {
@@ -164,23 +165,85 @@
             border-style: solid;
             border-width: 1px;
         }
-        h5 {
-            margin-right: 10px;
-            margin-left: 10px;
+        .form {
+            margin-top: 50px;
+            margin-bottom: 50px;
         }
-        .topTitle {
+        .form input {
+            width: 71%;
+        }
+        .flex {
+            display: flex;
+        }
+        .right {
+            text-align: right;
+        }
+        .right {
+            text-align: right;
+        }
+        .coursesInput, .roomsInput {
+            width: 80%;
+        }
+        .right button {
+            margin-right: 10%;
+        }
+        .single label {
             display: block;
+            margin-left: 20px;
         }
-        .inlineDiv {
-            display: inline-block;
+        .light {
+            color: grey;
+            font-weight: 400;
+        }
+        .roomsInput {
+            margin-top: 30px;
+        }
+        .settings, .adminInputs {
+            width: 20%;
+        }
+        .dataList {
+            max-height: 200px;
+            max-width: 200px;
+            margin-bottom: 50px;
+            overflow: auto;
+        }
+        .example-animate-container {
+            background:white;
+            list-style:none;
+            margin:0;
+            padding:0 10px;
+        }
+        .animate-repeat {
+            line-height:30px;
+            list-style:none;
+            box-sizing:border-box;
+        }
+        .animate-repeat.ng-move,
+        .animate-repeat.ng-enter,
+        .animate-repeat.ng-leave {
+            transition:all linear 0.5s;
+        }
+        .animate-repeat.ng-leave.ng-leave-active,
+        .animate-repeat.ng-move,
+        .animate-repeat.ng-enter {
+            opacity:0;
+            max-height:0;
+        }
+        .animate-repeat.ng-leave,
+        .animate-repeat.ng-move.ng-move-active,
+        .animate-repeat.ng-enter.ng-enter-active {
+            opacity:1;
+            max-height:30px;
         }
     </style>
     <script>
         //variables globales
         var adresse = "http://192.168.206.106/AugmentEPF/php/";
+        var actualrooms = ["Amphi A", "Amphi B", "1L", "2L", "3L", "4L", "5L", "6L", "7L", "8L", "9L", "11L", "12L", "i1", "i2", "i3", "i4", "i5", "i6"];
+        var actualPoI = ["Villa Lakanal", "Villa Lycée", "Scolarité", "Accueil"];
         
         // création de l'app Angular
-        var app = angular.module("myApp", ["ngRoute"]);
+        var app = angular.module("myApp", ["ngRoute", "ngAnimate"]);
 
         // déclaration des routes
         app.config(function($routeProvider, $locationProvider) {
@@ -267,9 +330,9 @@
             }
             
             this.connectionAnon = function() {
-                console.log("coucou");
-                
                 localStorage.name = "anon";
+                
+                $('[data-toggle="popover"]').hide();
                 
                 document.location = "/#/dashboard";
             }
@@ -293,13 +356,26 @@
         app.controller("courses", function(){
             
                        });
-        app.controller("rooms", function(){
+        app.controller("rooms", function($scope){
+            $scope.actualRooms = actualrooms;
             
                        });
         app.controller("settings", function(){
             
                        });
-        app.controller("admin", function(){
+        app.controller("admin", function($scope){
+            $scope.tab = "show";
+            $scope.actualRooms = actualrooms;
+            $scope.actualPoI = actualPoI;
+            
+            this.edition = function(data) {
+                $scope.curentData = data;
+                $scope.tab = "edit";
+            }
+            
+            this.delete = function(data) {
+                console.log(data);
+            }
             
                        });
     </script>

@@ -1,6 +1,7 @@
 <div ng-controller="menuApp as curent">
     <div class="menuApp">
         <label>{{name}}</label>
+        <label ng-click="curent.test()">logOut</label>
         
         <a href="/#/" ><h3>Home</h3></a>
         <a href="/#/dashboard" ><h3>Visit</h3></a>
@@ -9,7 +10,6 @@
         <a href="/#/rooms" ><h3>Rooms</h3></a>
         <a href="/#/settings" ><h3>Settings</h3></a>
         <a href="/#/admin" ><h3>Admin</h3></a>
-        <label ng-click="curent.test()">logOut</label>
     </div>
 </div>
 
@@ -18,6 +18,10 @@
         <div class="col-sm-2"></div>
         <div class="col-sm-8">
             <h1>Calendar</h1>
+            
+            <div class="form">
+                <input type="url" placeholder="ical.epf.fr" class="form-control">
+            </div>
             
             <div class="calContent">
                 <div class="dayCal">

@@ -1,6 +1,7 @@
 <div ng-controller="menuApp as curent">
     <div class="menuApp">
         <label>{{name}}</label>
+        <label ng-click="curent.test()">logOut</label>
         
         <a href="/#/" ><h3>Home</h3></a>
         <a href="/#/dashboard" ><h3>Visit</h3></a>
@@ -9,7 +10,6 @@
         <a href="/#/rooms" ><h3>Rooms</h3></a>
         <a href="/#/settings" ><h3>Settings</h3></a>
         <a href="/#/admin" ><h3>Admin</h3></a>
-        <label ng-click="curent.test()">logOut</label>
     </div>
 </div>
 
@@ -187,21 +187,16 @@
 
     <div class="row">
         <div class="col-sm-2"></div>
-        <div class="col-sm-8">
+        <div class="col-sm-8 single">
             <h2>Courses</h2>
-            
-            <div class="dataDisplay">
-                <h5>Amhpi A —— 01/01/2018 12:12</h5>
-                <h5>Amhpi A —— 01/01/2018 12:12</h5>
-                <h5>Amhpi A —— 01/01/2018 12:12</h5>
-                <h5>Amhpi A —— 01/01/2018 12:12</h5>
-                
-                <h5><small>Amhpi A —— 01/01/2018 12:12</small></h5>
-                <h5><small>Amhpi A —— 01/01/2018 12:12</small></h5>
-                <h5><small>Amhpi A —— 01/01/2018 12:12</small></h5>
-                <h5><small>Amhpi A —— 01/01/2018 12:12</small></h5>
-                
-            </div>
+
+            <label>Amhpi A —— 01/01/2018 12:12</label>
+            <label>Amhpi A —— 01/01/2018 12:12</label>
+            <label>Amhpi A —— 01/01/2018 12:12</label>
+            <label>Amhpi A —— 01/01/2018 12:12</label>
+
+            <label class="light">Amhpi A —— 01/01/2018 12:12</label>
+            <label class="light">Amhpi A —— 01/01/2018 12:12</label>
             
             <button class="btn btn-large btn-default more">Plus</button>
         </div>
@@ -228,3 +223,9 @@
         <div class="col-sm-2"></div>
     </div>
 </div>
+
+<script>
+    $(document).ready(function(){
+        $('[data-toggle="popover"]').popover();
+    });
+</script>
