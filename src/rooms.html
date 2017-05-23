@@ -29,9 +29,11 @@
             
                 <div class="single">
                     <input type="text" class="form-control roomsInput" placeholder="Search room" ng-model="search">
-                    <div class="example-animate-container">
-                        <div ng-repeat="item in actualRooms | filter:search as results" class="animate-repeat">
-                            {{item}}
+                    <div class="dataList">
+                        <div class="example-animate-container">
+                            <div ng-repeat="item in actualRooms | filter:search as results" class="animate-repeat">
+                                {{item}}
+                            </div>
                         </div>
                     </div>
                 </div>

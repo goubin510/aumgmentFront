@@ -108,6 +108,9 @@
             text-align: center;
             width: 10%;
             margin-left: 80%;
+            
+            margin-top: 20px;
+            margin-bottom: 50px;
         }
         .calContent {
             display: flex;
@@ -331,8 +334,6 @@
             
             this.connectionAnon = function() {
                 localStorage.name = "anon";
-                
-                $('[data-toggle="popover"]').hide();
                 
                 document.location = "/#/dashboard";
             }
