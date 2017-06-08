@@ -12,25 +12,36 @@
     <script   src="https://code.jquery.com/jquery-3.1.1.min.js"   integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="   crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 
-<!--  import de angular et ses compos  -->
+<!--  import de angular et de ses compos  -->
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-route.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-animate.js"></script>
+    
+<!--  parametre site  -->
+    <link rel="icon" type="image/png" href="img/logoAppli.png" />
     
     <style>
         body, html, .content {
             margin: 0;
             padding: 0;
             height: 100%;
+            background-color: #F6F7F7;
+            color: #787878;
+        }
+        footer {
+            position: absolute;
+            width: 100%;
+            
+            bottom: 0px;
         }
         a, a:hover, a:active {
-            color: white;
+            color: #F6F7F7;
         }
         .menuInfo, .menuApp {
         	z-index: 1;
         	vertical-align: middle;
         	position: fixed;
-        	background-color: #272626;
+        	background-color: #787878;
             
         	margin-top: 20%;
             padding-left: 10px;
@@ -42,7 +53,7 @@
         	height: 100%;
         }
         .menuApp label {
-            color: white;
+            color: #F6F7F7;
         }
         .menuInfo {
         	box-shadow: 0px 0px 50px #272626;
@@ -53,7 +64,7 @@
     		margin-top: 50px;
     	}
     	.menuInfo a, .menuApp a, .menuInfo a:hover, .menuApp a:hover, .menuInfo a:active, .menuApp a:active {
-    		color: white;
+    		color: #F6F7F7;
     		text-decoration: none;
     	}
     	.firstPic, .lastPic {
@@ -75,6 +86,12 @@
             background-image: url("img/lakanalEntry.jpg");
             min-height: 200px;
 		}
+        .logo {
+            width: 20%;
+            height: 20%;
+            
+            margin-left: 79%;
+        }
         .createUser label{
             display: inline-block;
             text-align: right;
@@ -84,18 +101,26 @@
             display: inline-block;
             width: 79%;
         }
-        h4 {
+        .menuInfo h2, .menuApp h3 {
+            transition-duration: 0.5s;
+            border-radius: 0 10px 10px 0;
+        }
+        .menuInfo h2:hover, .menuApp h3:hover {
+            color: #787878;
+            background-color: #E0E0E0;
+        }
+        h4, .spe {
             margin: 0;
             display: inline-block;
             text-align: center;
             
             border-right-style: solid;
             border-right-width: 1px;
-            border-right-color: black;
+            border-right-color: #787878;
             
             padding: 10px;
         }
-        h4:last-child {
+        h4:last-child, .spe:last-child {
             border-style: none;
         }
         .personalTag {
@@ -123,14 +148,14 @@
             
             border-style: solid;
             border-width: 1px;
-            border-color: black;
+            border-color: #787878;
         }
         .calTest {
             border-style: dotted;
             border-width: 1px;
-            border-color: RGBA(0, 0, 0, 0.8);
+            border-color: #787878;
             
-            background-color: RGBA(255, 0, 0, 0.8);
+            background-color: #FA232E;
         }
         .title, titleLegend {
             margin-bottom: 20px;
@@ -195,7 +220,7 @@
             margin-left: 20px;
         }
         .light {
-            color: grey;
+            color: #787878;
             font-weight: 400;
         }
         .roomsInput {
@@ -206,37 +231,43 @@
         }
         .dataList {
             max-height: 200px;
-            max-width: 200px;
+            width: 80%;
             margin-bottom: 50px;
             overflow: auto;
         }
         .example-animate-container {
-            background:white;
-            list-style:none;
-            margin:0;
-            padding:0 10px;
+            background: #F6F7F7;
+            list-style: none;
+            margin: 0;
+            padding: 0 10px;
         }
         .animate-repeat {
-            line-height:30px;
-            list-style:none;
-            box-sizing:border-box;
+            line-height: 30px;
+            list-style: none;
+            box-sizing: border-box;
         }
         .animate-repeat.ng-move,
         .animate-repeat.ng-enter,
         .animate-repeat.ng-leave {
-            transition:all linear 0.5s;
+            transition: all linear 0.5s;
         }
         .animate-repeat.ng-leave.ng-leave-active,
         .animate-repeat.ng-move,
         .animate-repeat.ng-enter {
-            opacity:0;
-            max-height:0;
+            opacity: 0;
+            max-height: 0;
         }
         .animate-repeat.ng-leave,
         .animate-repeat.ng-move.ng-move-active,
         .animate-repeat.ng-enter.ng-enter-active {
-            opacity:1;
-            max-height:30px;
+            opacity: 1;
+            max-height: 30px;
+        }
+        .modal-content {
+            background-color: #F6F7F7;
+        }
+        .btn-default {
+            color: #787878;
         }
     </style>
     <script>
@@ -276,6 +307,8 @@
         
         // Déclaration des controllers
         app.controller("info", function($http, $scope){
+            $scope.lang = "EN";
+            console.log($scope.lang);
             
             this.newUser = function(){
                 var user = {
@@ -382,7 +415,7 @@
     </script>
 </head>
 <body>
-    <!-- importation de contenu -->
+    <!-- import du contenu -->
     <div ng-app="myApp" class="content">
         <div class="content" ng-view></div>
     </div>

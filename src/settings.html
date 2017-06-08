@@ -1,5 +1,5 @@
 <div ng-controller="menuApp as curent">
-    <div class="menuApp">
+    <nav class="menuApp">
         <label>{{name}}</label>
         <label ng-click="curent.test()">logOut</label>
         
@@ -10,7 +10,7 @@
         <a href="/#/rooms" ><h3>Rooms</h3></a>
         <a href="/#/settings" ><h3>Settings</h3></a>
         <a href="/#/admin" ><h3>Admin</h3></a>
-    </div>
+    </nav>
 </div>
 
 <div ng-controller="settings as curent" class="content">
@@ -45,4 +45,8 @@
         </div>
         <div class="col-sm-2"></div>
     </div>
+    
+    <footer>
+        <img src="img/logoAppli.png" class="logo">
+    </footer>
 </div>

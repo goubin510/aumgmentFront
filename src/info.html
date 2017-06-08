@@ -1,10 +1,17 @@
 <div ng-controller="info as curent" class="content">
-    <div class="menuInfo" >
+    <nav class="menuInfo" ng-show="lang == 'EN'">
         <a href="" ><h2>Visit</h2></a>
         <a href="" ><h2>Projet</h2></a>
         <a href="" ><h2>News</h2></a>
         <a href="" data-toggle="modal" data-target="#conModal"><h2 ng-click="type = 'new'">Account</h2></a>
-    </div>
+    </nav>
+    
+    <nav class="menuInfo" ng-show="lang == 'FR'">
+        <a href="" ><h2>Visite</h2></a>
+        <a href="" ><h2>Projet</h2></a>
+        <a href="" ><h2>Nouvelles</h2></a>
+        <a href="" data-toggle="modal" data-target="#conModal"><h2 ng-click="type = 'new'">Compte</h2></a>
+    </nav>
 
     <div class="firstPic"></div>
 
@@ -13,7 +20,8 @@
         <div class="col-sm-6">
 
         <h1>AugmentEPF</h1>
-        <h2>Presentation</h2>
+        <h2 ng-show="lang == 'EN'">Presentation</h2>
+        <h2 ng-show="lang == 'FR'">Présentation</h2>
         <p>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse eu enim eu massa porttitor luctus at sit amet eros. Mauris imperdiet tempus justo sed mollis. Donec molestie vehicula efficitur. Aliquam dui eros, eleifend nec efficitur id, fermentum et justo. Proin id porta ex. Aenean scelerisque ex in semper lobortis. Nullam eget est nec nibh pellentesque lobortis. Proin rutrum, eros interdum mollis egestas, lorem sapien vulputate urna, a vehicula enim tortor non urna. Cras lacinia velit et feugiat mollis. Curabitur non velit dictum, viverra tortor id, congue sapien. In eget lacinia tortor. Maecenas erat ligula, efficitur vel libero vel, blandit accumsan neque. Pellentesque lobortis velit non sem rhoncus, placerat suscipit mi vulputate. In aliquam arcu eget tellus imperdiet tempus. Nam non lectus in mauris volutpat ultricies sed non nibh.
         </p>
@@ -26,7 +34,8 @@
         <div class="col-sm-3"></div>
         <div class="col-sm-6">
 
-        <h2>L'équipe</h2>
+        <h2 ng-show="lang == 'EN'">The Team</h2>
+        <h2 ng-show="lang == 'FR'">L'équipe</h2>
             <div class="personalTag">
                 <img src="img/photoProfile/ColinePatris.png" class="img-responsive" width="200" height="200" alt="Coline patris">
                 <label>Coline patris</label>
@@ -63,7 +72,8 @@
         <div class="col-sm-4"></div>
         <div class="col-sm-6">
 
-        <h2>News</h2>
+        <h2 ng-show="lang == 'EN'">News</h2>
+        <h2 ng-show="lang == 'FR'">Nouvelles</h2>
         <p>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse eu enim eu massa porttitor luctus at sit amet eros. Mauris imperdiet tempus justo sed mollis. Donec molestie vehicula efficitur. Aliquam dui eros, eleifend nec efficitur id, fermentum et justo. Proin id porta ex. Aenean scelerisque ex in semper lobortis. Nullam eget est nec nibh pellentesque lobortis. Proin rutrum, eros interdum mollis egestas, lorem sapien vulputate urna, a vehicula enim tortor non urna. Cras lacinia velit et feugiat mollis. Curabitur non velit dictum, viverra tortor id, congue sapien. In eget lacinia tortor. Maecenas erat ligula, efficitur vel libero vel, blandit accumsan neque. Pellentesque lobortis velit non sem rhoncus, placerat suscipit mi vulputate. In aliquam arcu eget tellus imperdiet tempus. Nam non lectus in mauris volutpat ultricies sed non nibh.
         </p>
@@ -72,7 +82,16 @@
         <div class="col-sm-2"></div>
     </div>
 
-    <div class="lastPic"></div>
+<!--  footer  -->
+    <footer class="lastPic">
+        <select ng-model="lang">
+            <option>EN</option>
+            <option>FR</option>
+        </select>
+        
+        
+        <img src="img/logoAppli.png" class="logo">
+    </footer>
     
     <!-- Modal -->
     <div id="conModal" class="modal" role="dialog">
@@ -143,5 +162,5 @@
                 </div>
             </div>
         </div>
-    </div> 
+    </div>
 </div>
