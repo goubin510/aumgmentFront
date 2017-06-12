@@ -28,22 +28,36 @@
             background-color: #F6F7F7;
             color: #787878;
         }
+        a, a:hover, a:active {
+            color: #F6F7F7;
+            text-decoration: none;
+        }
         footer {
             position: absolute;
             width: 100%;
             
+            display: flex;
+            
             bottom: 0px;
+            padding-top: 50px;
         }
-        a, a:hover, a:active {
-            color: #F6F7F7;
+        footer a, footer a:hover, footer a:active {
+            color: #FA232E;
+        }
+        h1, h2 {
+            color: #FA232E;
+        }
+        .flexRight {
+            flex: 1;
+            align-self: flex-end;
         }
         .menuInfo, .menuApp {
         	z-index: 1;
         	vertical-align: middle;
         	position: fixed;
-        	background-color: #787878;
+        	background-color: #E0E0E0;
             
-        	margin-top: 20%;
+        	margin-top: 10%;
             padding-left: 10px;
         	padding-right: 20px;
         	padding-bottom: 20px;
@@ -53,7 +67,7 @@
         	height: 100%;
         }
         .menuApp label {
-            color: #F6F7F7;
+            color: #787878;
         }
         .menuInfo {
         	box-shadow: 0px 0px 50px #272626;
@@ -61,10 +75,9 @@
         }
     	.menuInfo a, .menuApp a {
     		display: block;
-    		margin-top: 50px;
     	}
     	.menuInfo a, .menuApp a, .menuInfo a:hover, .menuApp a:hover, .menuInfo a:active, .menuApp a:active {
-    		color: #F6F7F7;
+    		color: #FA232E;
     		text-decoration: none;
     	}
     	.firstPic, .lastPic {
@@ -85,12 +98,11 @@
 		.lastPic {
             background-image: url("img/lakanalEntry.jpg");
             min-height: 200px;
+            
+            color: #E0E0E0e
 		}
         .logo {
-            width: 20%;
-            height: 20%;
-            
-            margin-left: 79%;
+            max-height: 200px;
         }
         .createUser label{
             display: inline-block;
@@ -103,11 +115,25 @@
         }
         .menuInfo h2, .menuApp h3 {
             transition-duration: 0.5s;
-            border-radius: 0 10px 10px 0;
+            padding: 10px;
+            
+            border-radius: 5px;
+            border-style: solid;
+            border-color: #E0E0E0;
+            border-width: 3px;
         }
         .menuInfo h2:hover, .menuApp h3:hover {
-            color: #787878;
-            background-color: #E0E0E0;
+            border-style: solid;
+            border-color: #FA232E;
+            border-width: 3px;
+        }
+        .exit {
+            transition-duration: 0.5s;
+            cursor: pointer;
+        }
+        .exit:hover {
+            text-decoration: underline;
+            cursor: pointer;
         }
         h4, .spe {
             margin: 0;
@@ -269,6 +295,11 @@
         .btn-default {
             color: #787878;
         }
+        .mapBtn {
+            background-color: rgba(0,0,0,0);
+            border-width: 1px;
+            border-style: solid;
+        }
     </style>
     <script>
         //variables globales
@@ -307,8 +338,11 @@
         
         // Déclaration des controllers
         app.controller("info", function($http, $scope){
-            $scope.lang = "EN";
-            console.log($scope.lang);
+            if(!localStorage.lang){
+                $scope.lang = "EN";
+                localStorage.lang = "EN";
+            }
+            localStorage.lang = $scope.lang;
             
             this.newUser = function(){
                 var user = {
@@ -398,9 +432,13 @@
             
                        });
         app.controller("admin", function($scope){
-            $scope.tab = "show";
+            $scope.tab = "map";
             $scope.actualRooms = actualrooms;
             $scope.actualPoI = actualPoI;
+            $scope.map = [];
+            var init = {
+                'value': 1
+            };
             
             this.edition = function(data) {
                 $scope.curentData = data;
@@ -409,6 +447,17 @@
             
             this.delete = function(data) {
                 console.log(data);
+            }
+            
+            this.prepareJson = function() {
+                $scope.map = [];
+                
+                for(var i = 0; i < $scope.height; i++){
+                    $scope.map.push([]);
+                    for(var j = 0; j < $scope.width; j++){
+                        $scope.map[i].push(init);
+                    }
+                }
             }
             
                        });
